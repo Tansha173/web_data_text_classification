@@ -26,8 +26,11 @@ associate it with a brand.
     
 ## Usage
 
-Server Call:
-curl -d '{"text": "TEXT TO BE PREDICTED"}' -H "Content-Type: application/json" -X POST http://0.0.0.0:55555/brand
+import requests
 
-Output returned:
-[{"brand": "woolworths", "score": 1}, {"brand": "unknown", "score":0.05}, {"brand": "rm_x_nonbrand_x_rm", "score": 0.04}]
+url = 'http://127.0.0.1:5000/'
+response = requests.post(url, json=text_to_predict)
+print(response.json())
+
+Output
+{'roblox': 2.0151207447052, 'unknown': 2.862473964691162, 'wayfair': 2.7404298782348633}
